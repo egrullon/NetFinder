@@ -29,7 +29,6 @@ import time
 import sys
 import socket
 from scapy.all import ARP, Ether, srp
-from threading import Thread
 
 try:
     t1 = time.time()
@@ -47,7 +46,7 @@ try:
         devices.append({'IP': device_received.psrc, 'MAC': device_received.hwsrc})
 
     print("\n===================================")
-    print("      ** Devices Detected **")
+    print("      ** Detected Devices **")
     print("===================================")
 
     print("\nIP" + " \t\t " + "MAC Address")
@@ -55,7 +54,6 @@ try:
     if __name__ == '__main__':
         for device in devices:
             print("{:16} {}".format(device['IP'], device['MAC']))
-
 
 except KeyboardInterrupt:
     print("\nBye")
