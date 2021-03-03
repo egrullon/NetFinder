@@ -4,7 +4,7 @@
 NetFinder v1.0 (GNU/Linux x86_64).
 
 # License:
-Copyright (C) 2021 egrullon <Amix>.
+Copyright (C) 2021 egrullon.
 
 License GPLv3+: GNU GPL version 3 or later.
 
