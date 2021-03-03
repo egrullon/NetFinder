@@ -1,3 +1,6 @@
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
 # NetFinder v1.0 (GNU/Linux x86_64).
 # Copyright (C) 2021 egrullon <Amix>.
 # License GPLv3+: GNU GPL version 3 or later <https://www.gnu.org/licenses/gpl-3.0.html>.
@@ -22,13 +25,45 @@
                                                                                             
 """
 
-# Install:
+import time
+import sys
+import socket
+from scapy.all import ARP, Ether, srp
+from threading import Thread
 
-You can install cloning this Git Repository
-$ git clone https://github.com/egrullon/netfinder.git
+try:
+    t1 = time.time()
+    net = str(input("Insert IP: "))
+
+    detail_arp = ARP(pdst=net)
+    ether = Ether(dst="ff:ff:ff:ff:ff:ff")
+
+    pack = ether / detail_arp
+
+    result = srp(pack, timeout=4)[0]
+    devices = []
+
+    for device_send, device_received in result:
+        devices.append({'IP': device_received.psrc, 'MAC': device_received.hwsrc})
+
+    print("\n===================================")
+    print("      ** Devices Detected **")
+    print("===================================")
+
+    print("\nIP" + " \t\t " + "MAC Address")
+
+    if __name__ == '__main__':
+        for device in devices:
+            print("{:16} {}".format(device['IP'], device['MAC']))
 
 
-# Usage:
-$ python3 netfinder.py
-$ Enter IP Address: <192.168.1.0/24> 
+except KeyboardInterrupt:
+    print("\nBye")
+    sys.exit()
+
+except socket.gainerror:
+    print("Connection error")
+    sys.exit()
+
+print("\nHosts scanned in", time.time() - t1, "seconds")
 
