@@ -61,9 +61,8 @@ except KeyboardInterrupt:
     print("\nBye")
     sys.exit()
 
-except socket.gainerror:
-    print("Connection error")
+except socket.gaierror:
+    print('Connection error')
     sys.exit()
 
 print("\nHosts scanned in", time.time() - t1, "seconds")
-
