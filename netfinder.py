@@ -39,7 +39,7 @@ try:
 
     pack = ether / detail_arp
 
-    result = srp(pack, timeout=4)[0]
+    result = srp(pack, timeout=1)[0]
     devices = []
 
     for device_send, device_received in result:
@@ -63,4 +63,4 @@ except socket.gaierror:
     print('Connection error')
     sys.exit()
 
-print("\nHosts scanned in", time.time() - t1, "seconds")
+print("\nScanned devices in", time.time() - t1, "seconds")
