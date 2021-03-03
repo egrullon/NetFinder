@@ -23,5 +23,5 @@ $ git clone https://github.com/egrullon/netfinder.git
 # Usage:
 $ sudo python3 netfinder.py
 
-$ Enter IP Address: <192.168.1.0/24> 
+Enter IP Address: <192.168.1.0/24> 
 
