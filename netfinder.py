@@ -33,7 +33,7 @@ from threading import Thread
 
 try:
     t1 = time.time()
-    net = str(input("Insert IP: "))
+    net = str(input("Enter IP Address: "))
 
     detail_arp = ARP(pdst=net)
     ether = Ether(dst="ff:ff:ff:ff:ff:ff")
